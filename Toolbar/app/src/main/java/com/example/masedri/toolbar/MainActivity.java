@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,6 +14,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
@@ -26,14 +28,17 @@ public class MainActivity extends AppCompatActivity {
     private ActionBar aBar;
     private ListView listView;
     ArrayAdapter<String> adapter;
+    private TextView viewElipsis;
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater(); // todos los elementos del xml que define una UI hay que infltarlos para poder manipularlos por codigo.
         inflater.inflate(R.menu.toolbar_menu, menu);
+
         return true;
     }
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                             aBar.setDisplayShowCustomEnabled(false);
 
                             //Empezar la busqueda
+
                             return true;
                         }
                         return false;
